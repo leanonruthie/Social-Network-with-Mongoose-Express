@@ -3,6 +3,8 @@
 ## Work Reference
 
 * RUT-VIRT-FSF-PT-06-2022-U-LOLC/18-NoSQL/01-Activities/28-Stu_Mini-Project
+* https://stackoverflow.com/questions/27248556/mongodb-difference-between-push-addtoset
+* https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/
 
 ## User Story
 
