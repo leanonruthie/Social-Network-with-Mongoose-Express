@@ -1,8 +1,8 @@
-// RUT-VIRT-FSF-PT-06-2022-U-LOLC/18-NoSQL/01-Activities/28-Stu_Mini-Project
-// * https://stackoverflow.com/questions/27248556/mongodb-difference-between-push-addtoset
-// * https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/
+// Challenge Template: 18-NoSQL/01-Activities/28-Stu_Mini-Project
+// * $push vs $addToSet: https://stackoverflow.com/questions/27248556/mongodb-difference-between-push-addtoset
+// * Mongoose vs MongoDB: https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/
 
-// One user will have many thoughts and both models are specifically used in this controller in line 37, in which, if a user is deleted, then his/her/their thoughts are all deleted as well.
+// One user will have many thoughts and both models are specifically used in this controller in line 37, in which, if a user is deleted, then his/her/their thoughts are all deleted as well (Bonus functionality).
 
 const { User, Thought } = require('../models');
 
@@ -17,6 +17,8 @@ module.exports = {
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
       .select('-__v')
+      .populate('thoughts')
+      .populate('friends')
       .then((user) =>
         !user
           ? res.status(404).json({ message: 'No user with that ID' })

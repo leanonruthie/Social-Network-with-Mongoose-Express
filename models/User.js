@@ -1,58 +1,63 @@
-const { Schema, Types } = require('mongoose');
+// Challenge Template: 18-NoSQL/01-Activities/28-Stu_Mini-Project
+// Virtuals: 18-NoSQL/01-Activities/21-Ins_Virtuals
+// Mongoose vs MongoDB: https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/
+// Email Address Validation: https://www.w3docs.com/snippets/javascript/how-to-validate-an-e-mail-using-javascript.html
 
-const assignmentSchema = new Schema(
+const { Schema, model } = require('mongoose');
+
+// below function found in aforementioned website in "Email Address Validation" and modified to live const
+
+// function validateEmail(email) {
+//   let res = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+//   return res.test(email);
+// }
+
+const validateEmail = (email) => {
+  const res = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  return res.test(email);
+};
+
+const userSchema = new Schema(
   {
-    assignmentId: {
-      type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId(),
+    username: {
+      type: String,
+      unique: true,
+      required: true,
+      trimmed: true
     },
-    assignmentName: {
+
+    email: {
       type: String,
       required: true,
-      maxlength: 50,
-      minlength: 4,
-      default: 'Unnamed assignment',
+      unique: true,
+      validate: [validateEmail, 'Please kindly provide a valid email addy'],
+      match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please kindly provide a valid email addy']
     },
-    score: {
-      type: Number,
-      required: true,
-      default: () => Math.floor(Math.random() * (100 - 70 + 1) + 70),
+
+    thoughts: {
+      _id: Schema.Types.ObjectId,
+      ref: 'thought'
     },
-    createdAt: {
-      type: Date,
-      default: Date.now,
+    friends: {
+      _id: Schema.Types.ObjectId,
+      ref: 'user'
     },
   },
   {
     toJSON: {
-      getters: true,
+      virtuals: true,
     },
     id: false,
   }
 );
 
-module.exports = assignmentSchema;
+// below code modified from code found in 18-NoSQL/01-Activities/21-Ins_Virtuals
 
+// Create a virtual property `friendCount` that gets the amount of friends per user
+userSchema.virtual('friendCount').get(function () {
+  return this.friends.length;
+});
 
+const User = model('user', userSchema);
 
-// * `username`
-// * String
-// * Unique
-// * Required
-// * Trimmed
-
-// * `email`
-// * String
-// * Required
-// * Unique
-// * Must match a valid email address (look into Mongoose's matching validation)
-
-// * `thoughts`
-// * Array of `_id` values referencing the `Thought` model
-
-// * `friends`
-// * Array of `_id` values referencing the `User` model (self-reference)
-
-// **Schema Settings**:
-
-// Create a virtual called `friendCount` that retrieves the length of the user's `friends` array field on query.
+module.exports = User;

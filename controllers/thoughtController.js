@@ -1,13 +1,13 @@
-// RUT-VIRT-FSF-PT-06-2022-U-LOLC/18-NoSQL/01-Activities/28-Stu_Mini-Project
-// * https://stackoverflow.com/questions/27248556/mongodb-difference-between-push-addtoset
-// * https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/
+// Challenge Template: 18-NoSQL/01-Activities/28-Stu_Mini-Project
+// * $push vs $addToSet: https://stackoverflow.com/questions/27248556/mongodb-difference-between-push-addtoset
+// * Mongoose vs MongoDB: https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/
 
 
-// One user will have many thoughts (and eventually each thought will have many thoughts) and both models are used simultaneously below throughout majority of the methods
+// One user will have many thoughts (and eventually each thought will have many reactions) and both USER and THOUGHT models are used simultaneously below throughout majority of the methods
 
 const { User, Thought } = require('../models');
 
-// the exported object below is so convenient with all GET THOUGHTS/GET THOUGHT BY ID/POST/PUT/DELETE Functionality below
+// the exported object below is so convenient with all GET THOUGHTS/GET THOUGHT BY ID/POST THOUGHT/PUT THOUGHT/DELETE THOUGHT/POST REACTION/DELETE REACTION Functionalities below
 
 module.exports = {
   

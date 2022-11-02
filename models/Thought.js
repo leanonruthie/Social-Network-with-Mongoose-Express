@@ -1,58 +1,43 @@
-const { Schema, model } = require('mongoose');
-const assignmentSchema = require('./Assignment');
+// Challenge Template: 18-NoSQL/01-Activities/28-Stu_Mini-Project
+// Virtuals: 18-NoSQL/01-Activities/21-Ins_Virtuals
+// Mongoose vs MongoDB: https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/
 
-// Schema to create Student model
-const studentSchema = new Schema(
+const { Schema, model } = require('mongoose');
+const Reaction = require('./Reaction');
+
+const thoughtSchema = new Schema(
   {
-    first: {
+    thoughtText: {
       type: String,
       required: true,
-      max_length: 50,
+      min_length: 1,
+      max_length: 280,
     },
-    last: {
+    createdAt: {
+      type: Date,
+      default: Date.now
+    },
+    username: {
       type: String,
-      required: true,
-      max_length: 50,
+      required: true
     },
-    github: {
-      type: String,
-      required: true,
-      max_length: 50,
-    },
-    assignments: [assignmentSchema],
+    reactions: [Reaction],
   },
   {
     toJSON: {
-      getters: true,
+    getters: true,
+    virtuals: true
     },
+    id: false
   }
 );
 
-const Student = model('student', studentSchema);
+// below code modified from code found in 18-NoSQL/01-Activities/21-Ins_Virtuals
 
-module.exports = Student;
+// Create a virtual property `friendCount` that gets the amount of friends per user
+thoughtSchema.virtual('reactionCount').get(function () {
+  return this.reactions.length;
+});
+const Thought = model('thought', thoughtSchema);
 
-// **Thought**:
-
-// * `thoughtText`
-//   * String
-//   * Required
-//   * Must be between 1 and 280 characters
-
-// * `createdAt`
-//   * Date
-//   * Set default value to the current timestamp
-//   * Use a getter method to format the timestamp on query
-
-// * `username` (The user that created this thought)
-//   * String
-//   * Required
-
-// * `reactions` (These are like replies)
-//   * Array of nested documents created with the `reactionSchema`
-
-// **Schema Settings**:
-
-// Create a virtual called `reactionCount` that retrieves the length of the thought's `reactions` array field on query.
-
-// ---
+module.exports = Thought;

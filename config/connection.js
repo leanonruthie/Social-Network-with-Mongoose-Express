@@ -1,4 +1,4 @@
-// RUT-VIRT-FSF-PT-06-2022-U-LOLC/18-NoSQL/01-Activities/28-Stu_Mini-Project
+// * Challenge Template: 18-NoSQL/01-Activities/28-Stu_Mini-Project
 
 const { connect, connection } = require('mongoose');
 

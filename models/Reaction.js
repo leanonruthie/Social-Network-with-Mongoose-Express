@@ -1,66 +1,34 @@
-const { Schema, model } = require('mongoose');
+// Challenge Template: 18-NoSQL/01-Activities/28-Stu_Mini-Project
+// Mongoose vs MongoDB: https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/
 
-// Schema to create a course model
-const courseSchema = new Schema(
+const { Schema, Types } = require('mongoose');
+
+const reactionSchema = new Schema(
   {
-    courseName: {
+    reactionId: {
+      type: Schema.Types.ObjectId,
+      default: () => new Types.ObjectId()
+    },
+    reactionBody: {
       type: String,
       required: true,
+      max_length: 280
     },
-    inPerson: {
-      type: Boolean,
-      default: true,
+    username: {
+      type: String,
+      required: true
     },
-    startDate: {
+    createdAt: {
       type: Date,
-      default: Date.now(),
+      default: Date.now
     },
-    endDate: {
-      type: Date,
-      // Sets a default value of 12 weeks from now
-      default: () => new Date(+new Date() + 84 * 24 * 60 * 60 * 1000),
-    },
-    students: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Student',
-      },
-    ],
   },
   {
     toJSON: {
-      virtuals: true,
+    getters: true
     },
-    id: false,
+    id: false
   }
 );
 
-const Course = model('course', courseSchema);
-
-module.exports = Course;
-
-
-
-// **Reaction** (SCHEMA ONLY)
-
-// * `reactionId`
-//   * Use Mongoose's ObjectId data type
-//   * Default value is set to a new ObjectId
-
-// * `reactionBody`
-//   * String
-//   * Required
-//   * 280 character maximum
-
-// * `username`
-//   * String
-//   * Required
-
-// * `createdAt`
-//   * Date
-//   * Set default value to the current timestamp
-//   * Use a getter method to format the timestamp on query
-
-// **Schema Settings**:
-
-// This will not be a model, but rather will be used as the `reaction` field's subdocument schema in the `Thought` model.
+module.exports = reactionSchema;

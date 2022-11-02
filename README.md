@@ -2,9 +2,11 @@
 
 ## Work Reference
 
-* RUT-VIRT-FSF-PT-06-2022-U-LOLC/18-NoSQL/01-Activities/28-Stu_Mini-Project
-* https://stackoverflow.com/questions/27248556/mongodb-difference-between-push-addtoset
-* https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/
+* Challenge Template: 18-NoSQL/01-Activities/28-Stu_Mini-Project
+* Virtuals: 18-NoSQL/01-Activities/21-Ins_Virtuals
+* $push vs $addToSet: https://stackoverflow.com/questions/27248556/mongodb-difference-between-push-addtoset
+* Mongoose vs MongoDB: https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/
+* Email Address Validation: https://www.w3docs.com/snippets/javascript/how-to-validate-an-e-mail-using-javascript.html
 
 ## User Story
 
