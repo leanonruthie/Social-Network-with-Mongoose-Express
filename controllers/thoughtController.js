@@ -1,6 +1,6 @@
 // Challenge Template: 18-NoSQL/01-Activities/28-Stu_Mini-Project
-// * $push vs $addToSet: https://stackoverflow.com/questions/27248556/mongodb-difference-between-push-addtoset
-// * Mongoose vs MongoDB: https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/
+// $push vs $addToSet: https://stackoverflow.com/questions/27248556/mongodb-difference-between-push-addtoset
+//Mongoose vs MongoDB: https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/
 
 
 // One user will have many thoughts (and eventually each thought will have many reactions) and both USER and THOUGHT models are used simultaneously below throughout majority of the methods

@@ -1,48 +1,32 @@
+// Challenge Template: 18-NoSQL/01-Activities/28-Stu_Mini-Project
+//Mongoose vs MongoDB: https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/
+
+// Amazed at how convenient everything is below
+
 const router = require('express').Router();
 const {
-  getStudents,
-  getSingleStudent,
-  createStudent,
-  deleteStudent,
-  addAssignment,
-  removeAssignment,
-} = require('../../controllers/studentController');
+  getThoughts,
+  getSingleThought,
+  createThought,
+  deleteThought,
+  addReaction,
+  removeReaction,
+} = require('../../controllers/thoughtController');
 
-router.route('/').get(getStudents).post(createStudent);
+// GET THOUGHTS in which POST must be performed here = `localhost:3001/api/thoughts` in Insomnia
 
-router.route('/:studentId').get(getSingleStudent).delete(deleteStudent);
+router.route('/').get(getThoughts).post(createThought);
 
-router.route('/:studentId/assignments').post(addAssignment);
+// GET THOUGHT BY ID in which PUT and DELETE must be performed here = `localhost:3001/api/thoughts/:thoughtId` in Insomnia
 
-router.route('/:studentId/assignments/:assignmentId').delete(removeAssignment);
+router.route('/:thoughtId').get(getSingleThought).put(updateThought).delete(deleteThought);
+
+// GET REACTIONS in which POST must be performed here = `localhost:3001/api/thoughts/:thoughtId/reactions` in Insomnia
+
+router.route('/:thoughtId/reactions').post(addReaction);
+
+// GET REACTION BY ID in which DELETE must be performed here = `localhost:3001/api/thoughts/:thoughtId/reactions/:reactionId` in Insomnia
+
+router.route('/:thoughtId/reactions/:reactionId').post(removeReaction);
 
 module.exports = router;
-
-// **`/api/thoughts`**
-
-// * `GET` to get all thoughts
-
-// * `GET` to get a single thought by its `_id`
-
-// * `POST` to create a new thought (don't forget to push the created thought's `_id` to the associated user's `thoughts` array field)
-
-// ```json
-// // example data
-// {
-//   "thoughtText": "Here's a cool thought...",
-//   "username": "lernantino",
-//   "userId": "5edff358a0fcb779aa7b118b"
-// }
-// ```
-
-// * `PUT` to update a thought by its `_id`
-
-// * `DELETE` to remove a thought by its `_id`
-
-// ---
-
-// **`/api/thoughts/:thoughtId/reactions`**
-
-// * `POST` to create a reaction stored in a single thought's `reactions` array field
-
-// * `DELETE` to pull and remove a reaction by the reaction's `reactionId` value
