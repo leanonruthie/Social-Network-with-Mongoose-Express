@@ -31,17 +31,21 @@ const userSchema = new Schema(
       required: true,
       unique: true,
       validate: [validateEmail, 'Please kindly provide a valid email addy'],
-      match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please kindly provide a valid email addy']
+      match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please kindly provide a valid email addy'],
     },
 
-    thoughts: {
+    thoughts: [
+      {
       _id: Schema.Types.ObjectId,
       ref: 'thought'
     },
-    friends: {
+  ],
+    friends: [
+      {
       _id: Schema.Types.ObjectId,
       ref: 'user'
     },
+  ],
   },
   {
     toJSON: {
