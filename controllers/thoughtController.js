@@ -13,13 +13,12 @@ module.exports = {
   
   getThoughts(req, res) {
     Thought.find()
-      .then((thoughts) => res.json(thoughts))
+      .then((thought) => res.json(thought))
       .catch((err) => res.status(500).json(err));
   },
 
   getSingleThought(req, res) {
-    User.findOne({ _id: req.params.thoughtId })
-      .select('-__v')
+    Thought.findOne({ _id: req.params.thoughtId })
       .then((thought) =>
         !thought
           ? res.status(404).json({ message: 'No thought with that ID' })
@@ -87,8 +86,6 @@ updateThought(req, res) {
   },
 
   addReaction(req, res) {
-    console.log('You are adding a Reaction');
-    console.log(req.body);
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
       { $addToSet: { reactions: req.body } },
@@ -96,9 +93,7 @@ updateThought(req, res) {
     )
       .then((thought) =>
         !thought
-          ? res
-              .status(404)
-              .json({ message: 'No thought found with that ID' })
+          ? res.status(404).json({ message: 'No thought found with that ID' })
           : res.json(thought)
       )
       .catch((err) => res.status(500).json(err));
@@ -111,9 +106,7 @@ updateThought(req, res) {
     )
       .then((thought) =>
         !thought
-          ? res
-              .status(404)
-              .json({ message: 'No thought found with that ID' })
+          ? res.status(404).json({ message: 'No thought found with that ID' })
           : res.json(thought)
       )
       .catch((err) => res.status(500).json(err));
