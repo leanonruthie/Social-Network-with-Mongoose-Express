@@ -3,6 +3,8 @@
 // Mongoose vs MongoDB: https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/
 // Email Address Validation: https://www.w3docs.com/snippets/javascript/how-to-validate-an-e-mail-using-javascript.html
 
+// Reminder: don't forget friends here
+
 const { Schema, model } = require('mongoose');
 
 // below function found in aforementioned website in "Email Address Validation" and modified to live const

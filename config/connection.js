@@ -2,7 +2,7 @@
 
 const { connect, connection } = require('mongoose');
 
-// with everything working properly, I should be able to see networkDB in my mongoDB
+// with everything working properly, I should be able to see networkDB in my mongoDB - See screenshots
 
 const connectionString =
   process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/networkDB';

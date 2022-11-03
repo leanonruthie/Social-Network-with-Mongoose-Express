@@ -2,7 +2,7 @@
 // $push vs $addToSet: https://stackoverflow.com/questions/27248556/mongodb-difference-between-push-addtoset
 // Mongoose vs MongoDB: https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/
 
-// One user will have many thoughts and both models are specifically used in this controller in line 37, in which, if a user is deleted, then his/her/their thoughts are all deleted as well (Bonus functionality).
+// One user will have many thoughts and both models are specifically used in this controller in line 62, in which, if a user is deleted, then his/her/their thoughts are all deleted as well (Bonus functionality).
 
 const { User, Thought } = require('../models');
 
@@ -14,6 +14,7 @@ module.exports = {
       .then((users) => res.json(users))
       .catch((err) => res.status(500).json(err));
   },
+
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
       .select('-__v')
@@ -26,6 +27,7 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
+
   createUser(req, res) {
     User.create(req.body)
       .then((user) => res.json(user))
@@ -34,6 +36,7 @@ module.exports = {
         return res.status(500).json(err);
       });
   },
+
   updateUser(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
@@ -50,6 +53,7 @@ module.exports = {
         return res.status(500).json(err);
       });
   },
+
   deleteUser(req, res) {
     User.findOneAndDelete({ _id: req.params.userId })
       .then((user) =>
@@ -60,6 +64,7 @@ module.exports = {
       .then(() => res.json({ message: 'User and thoughts deleted!' }))
       .catch((err) => res.status(500).json(err));
   },
+
   addFriend(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
@@ -73,6 +78,7 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
+
   removeFriend(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },

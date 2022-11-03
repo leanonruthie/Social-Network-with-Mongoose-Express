@@ -1,6 +1,8 @@
 // Challenge Template: 18-NoSQL/01-Activities/28-Stu_Mini-Project
 // Mongoose vs MongoDB: https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/
 
+// Reminder: this will be incorporated in Thought model
+
 const { Schema, Types } = require('mongoose');
 
 const reactionSchema = new Schema(

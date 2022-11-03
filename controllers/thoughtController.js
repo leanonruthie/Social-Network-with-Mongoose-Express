@@ -1,7 +1,7 @@
 // Challenge Template: 18-NoSQL/01-Activities/28-Stu_Mini-Project
 // $push vs $addToSet: https://stackoverflow.com/questions/27248556/mongodb-difference-between-push-addtoset
+// I used $push because I prefer to see a duplicate value than not appending if the value already exists
 //Mongoose vs MongoDB: https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/
-
 
 // One user will have many thoughts (and eventually each thought will have many reactions) and both USER and THOUGHT models are used simultaneously below throughout majority of the methods
 
@@ -26,6 +26,7 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
+
   createThought(req, res) {
     Thought.create(req.body)
     .then((thought) => {
@@ -98,6 +99,7 @@ updateThought(req, res) {
       )
       .catch((err) => res.status(500).json(err));
   },
+
   removeReaction(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },

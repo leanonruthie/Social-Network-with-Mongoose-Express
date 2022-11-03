@@ -2,6 +2,8 @@
 // Virtuals: 18-NoSQL/01-Activities/21-Ins_Virtuals
 // Mongoose vs MongoDB: https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/
 
+// will getters and virtuals work fine here?
+
 const { Schema, model } = require('mongoose');
 const Reaction = require('./Reaction');
 
