@@ -35,8 +35,14 @@ THEN I am able to successfully DELETE the user as well
 
 ## Screenshot
 
-Insomnia Screenshot below:
-<img src="Assets/Screenshots/Screen Shot 2022-11-03 at 10.11.20 AM.png">
+* Insomnia Screenshot below:
+  <img src="./Assets/Screenshots/Insomnia.png">
+  
+* MongoDB - proof of new database called networkDB (empty without seeded data for now):
+  <img src="./Assets/Screenshots/mongoDB.png">
+
+* MongoDB - proof of new database with thoughts and users (empty without seeded data for now):
+  <img src="./Assets/Screenshots/mongoDBCollections.png">>
 
 ## URL
 
