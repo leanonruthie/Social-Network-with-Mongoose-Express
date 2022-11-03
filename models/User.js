@@ -27,7 +27,6 @@ const userSchema = new Schema(
       required: true,
       trimmed: true
     },
-
     email: {
       type: String,
       required: true,
@@ -35,7 +34,6 @@ const userSchema = new Schema(
       validate: [validateEmail, 'Please kindly provide a valid email addy'],
       match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please kindly provide a valid email addy'],
     },
-
     thoughts: [
       {
       type: Schema.Types.ObjectId,
@@ -60,6 +58,7 @@ const userSchema = new Schema(
 // below code modified from code found in 18-NoSQL/01-Activities/21-Ins_Virtuals
 
 // Create a virtual property `friendCount` that gets the amount of friends per user
+
 userSchema.virtual('friendCount').get(function () {
   return this.friends.length;
 });

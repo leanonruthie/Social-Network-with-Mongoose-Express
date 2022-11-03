@@ -36,7 +36,8 @@ const thoughtSchema = new Schema(
 
 // below code modified from code found in 18-NoSQL/01-Activities/21-Ins_Virtuals
 
-// Create a virtual property `friendCount` that gets the amount of friends per user
+// Create a virtual property `reactionCount` that gets the amount of reactions per thought
+
 thoughtSchema.virtual('reactionCount').get(function () {
   return this.reactions.length;
 });
