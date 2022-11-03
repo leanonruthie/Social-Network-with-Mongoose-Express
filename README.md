@@ -33,6 +33,11 @@ WHEN I test DELETE functionality to delete a user's associated thoughts
 THEN I am able to successfully DELETE the user as well 
 ```
 
+## Screenshot
+
+Insomnia Screenshot below:
+<img src="Assets/Screenshots/Screen Shot 2022-11-03 at 10.11.20 AM.png">
+
 ## URL
 
 * Git Hub URL: https://github.com/leanonruthie/Social-Network-with-Mongoose-Express.git
