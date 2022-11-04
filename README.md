@@ -38,10 +38,10 @@ THEN I am able to successfully DELETE the user as well
 * Insomnia Screenshot below:
   <img src="./Assets/Screenshots/Insomnia.png">
   
-* MongoDB - proof of new database called networkDB (empty without seeded data for now):
+* MongoDB - proof of new database called networkDB (empty without seeded/testing data for now):
   <img src="./Assets/Screenshots/mongoDB.png">
 
-* MongoDB - proof of new database with thoughts and users (empty without seeded data for now):
+* MongoDB - proof of new database with thoughts and users (empty without seeded/testing data for now):
   <img src="./Assets/Screenshots/mongoDBCollections.png">>
 
 ## URL
