@@ -70,15 +70,15 @@ updateThought(req, res) {
         !thought
           ? res.status(404).json({ message: 'No such thought exists' })
           : User.findOneAndUpdate(
-              { thought: req.params.thoughtId },
-              { $pull: { thought: req.params.thoughtId } },
+              { thoughts: req.params.thoughtId },
+              { $pull: { thoughts: req.params.thoughtId } },
               { new: true }
             )
       )
       .then((user) =>
         !user
           ? res.status(404).json({ message: 'No user with that ID' })
-          : res.json(user)
+          : res.json({message: `${user.username} deleted a thought!`})
       )
       .catch((err) => {
         console.log(err);
