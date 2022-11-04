@@ -24,7 +24,7 @@ router.route('/:userId').get(getSingleUser).put(updateUser).delete(deleteUser);
 
 // GET FRIENDS in which POST and DELETE must be performed here = `localhost:3001/api/users/:userId/friends/:friendId` in Insomnia
 
-router.route('/:userId/friends/:friendId').post(addFriend).post(removeFriend);
+router.route('/:userId/friends/:friendId').post(addFriend).delete(removeFriend);
 
 module.exports = router;
 
