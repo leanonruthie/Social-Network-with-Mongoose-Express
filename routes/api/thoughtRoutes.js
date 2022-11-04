@@ -28,6 +28,6 @@ router.route('/:thoughtId/reactions').post(addReaction);
 
 // GET REACTION BY ID in which DELETE must be performed here = `localhost:3001/api/thoughts/:thoughtId/reactions/:reactionId` in Insomnia
 
-router.route('/:thoughtId/reactions/:reactionId').post(removeReaction);
+router.route('/:thoughtId/reactions/:reactionId').delete(removeReaction);
 
 module.exports = router;
