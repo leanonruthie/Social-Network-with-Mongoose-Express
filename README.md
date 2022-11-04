@@ -48,5 +48,6 @@ THEN I am able to successfully DELETE the user as well
 
 * Git Hub URL: https://github.com/leanonruthie/Social-Network-with-Mongoose-Express.git
 * Video Demo seen below:
-  https://user-images.githubusercontent.com/107362875/200081785-c426c93a-5a66-41d6-9676-7c9d6dc980b9.mp4
+
+https://user-images.githubusercontent.com/107362875/200081876-f6fde497-fb39-4e80-94d5-2ee875c5bcff.mp4
 
