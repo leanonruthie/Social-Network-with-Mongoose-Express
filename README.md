@@ -4,9 +4,9 @@
 
 * Challenge Template: 18-NoSQL/01-Activities/28-Stu_Mini-Project
 * Virtuals: 18-NoSQL/01-Activities/21-Ins_Virtuals
-* $push vs $addToSet: https://stackoverflow.com/questions/27248556/mongodb-difference-between-push-addtoset
-* Mongoose vs MongoDB: https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/
-* Email Address Validation: https://www.w3docs.com/snippets/javascript/how-to-validate-an-e-mail-using-javascript.html
+* [$push vs $addToSet](https://stackoverflow.com/questions/27248556/mongodb-difference-between-push-addtoset)
+* [Mongoose vs MongoDB](https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/)
+* [Email Address Validation](https://www.w3docs.com/snippets/javascript/how-to-validate-an-e-mail-using-javascript.html)
 
 ## User Story
 
@@ -46,7 +46,7 @@ THEN I am able to successfully DELETE the user as well
 
 ## URL
 
-* Git Hub URL: https://github.com/leanonruthie/Social-Network-with-Mongoose-Express.git
+* My GitHub](https://github.com/leanonruthie/Social-Network-with-Mongoose-Express.git)
 * Video Demo seen below:
 
 https://user-images.githubusercontent.com/107362875/200081876-f6fde497-fb39-4e80-94d5-2ee875c5bcff.mp4
