@@ -46,7 +46,7 @@ THEN I am able to successfully DELETE the user as well
 
 ## URL
 
-* [My GitHub](https://github.com/leanonruthie/Social-Network-with-Mongoose-Express.git)
+* [GitHub Repository](https://github.com/leanonruthie/Social-Network-with-Mongoose-Express.git)
 * Video Demo seen below:
 
 https://user-images.githubusercontent.com/107362875/200081876-f6fde497-fb39-4e80-94d5-2ee875c5bcff.mp4
